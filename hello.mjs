@@ -45,8 +45,6 @@ for(var i = 0; i < students.length; i++)
 }
 console.log("total age of students", sum)
 
-
-
 //using lodash
 var sumStudents = lodash.sumBy(students, function(o)
  {
