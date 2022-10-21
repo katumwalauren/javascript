@@ -112,4 +112,5 @@ function getPrime (n) {
 }
 console.log (getPrime(7))
 
+
 //returning types in javascript
