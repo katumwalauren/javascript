@@ -51,3 +51,37 @@ var sumStudents = lodash.sumBy(students, function(o)
      return o.age; });
 lodash.sumBy(students, 'age');
 console.log(sumStudents)
+
+[
+    {
+      "name": "Alex Sentongo",
+      "age": 15
+    },
+    {
+      "name": "Ronnie Ssali",
+      "age": 10
+    },
+    {
+      "name": "Sarah Dusabe",
+      "age": 12
+    },
+    {
+      "name": "Jackson Samuel",
+      "age": 11
+    }
+  ]
+
+// 1. write a function named readStudents that returns the data in read data.json as an array
+var readStudents = []
+for(let i = 0; i < array.length; i++){
+  for(let j = 0; j < array[i].length; j++){
+    names.push(array[i][j].names)
+  }
+}
+console.log(readStudents(names))
+
+
+// 2. Write a function named sortByFirstName that sorts students data by firstName
+
+
+// 2. Write a function that returns the oldest student
