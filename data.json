@@ -23,6 +23,7 @@ const readStudents = arr.filter(function(item)){
 }
 console.log(readStudents(name))
 
+
  2. Write a function named sortByFirstName that sorts students data by firstName
 
 
