@@ -94,22 +94,69 @@ console.log(countVowel("my name is Lauren"))
 
 //check prime
 function getPrime (n) {
-    if (n === 1){
-        return 'is a prime';
-    }
-    else if(n === 2){
-        return 'is not prime'
-    }else
+    for(var x = 2; x < n; x++)
     {
-        for(var x = 2; x < n; x++)
-        {
-            if (n % x === 0){
-                return 'is not prime'
-            }
+        if (n % x === 0){
+            return 'is not prime'
         }
-        return 'is prime'
     }
+        return 'is prime'
 }
-console.log (getPrime(7))
+console.log (getPrime(4))
 
 //returning types in javascript
+function javaType (value){
+    var dataType =[Function, Number, String, Boolean, Object], x, length;
+    if(typeof value === "object" || typeof value === "function"){
+        for ( x = 0, length = dataType.length; x < length; x++){
+            if (value instanceof dataType[x]){
+                return dataType[x]
+            }
+        }
+    }
+    return typeof value
+}
+console.log (javaType(5));
+console.log(javaType('Lauren'));
+console.log(javaType('true'))
+
+//function taking in  numbers variable an double it if even
+function doubleEven (number){
+    const newNumber = [];
+    for(var i = 0; i < number.length; i++){
+        if( number[i] % 2 === 0) {
+            newNumber.push (number[i] * 2);
+        }
+    }
+    return newNumber
+}
+console.log(doubleEven([1, 2, 3, 4, 5, 6]))
+
+//function taking in  numbers variable and squares it if odd
+function squareOdd (number){
+    const thatNumber = [];
+    for(var i = 0; i < number.length; i++){
+        if( number[i] % 2 != 0) {
+            thatNumber.push (number[i] * number[i]);
+        }
+    }
+    return thatNumber
+}
+console.log(squareOdd([1, 2, 3, 4, 5, 6]))
+
+//function taking in a num variable and doubles it
+function doubleIt(num){
+    return num * num;
+}
+console.log(doubleIt(7))
+
+//takes in a name and adds Hello to it
+function printMyName(MyName) {
+    const name = 'Lauren'
+    return "Hello" + " " + name;
+  }
+  console.log(printMyName('Lauren'))
+
+  //
+
+  
