@@ -27,11 +27,11 @@ async function testIt(){
 testIt()
 
 //await is used to wait for a promise and it can only be used inside an async function eg
-// async function testThat (){
-//     let promise = thisPromise((resolve, reject) => {
-//         lastName(() => resolve('done'), 'Lauren')
-//     })
-//     let result = await promise
-//     console.log(result)
-// }
-// testThat()
+async function testThat (){
+   let promise = thisPromise((resolve, reject) => {
+   lastName(() => resolve('done'), 'Lauren')
+   })
+   let result = await promise
+   console.log(result)
+}
+testThat()
