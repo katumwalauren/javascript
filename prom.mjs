@@ -10,7 +10,6 @@ const promise = new Promise((resolve, reject) =>{
     } else {
         reject()
     }
-    
 })
 promise
     .then(() => console.log('success'))
