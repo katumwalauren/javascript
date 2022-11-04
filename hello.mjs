@@ -1,8 +1,21 @@
 
-import lodash from 'lodash'
+import _ from 'lodash'
+
+import fs from 'fs/promises'
+
+//const fetch = require('node-fetch');
+
+//const fs = require('fs')
+
+//const lodash =  require("lodash");
+
+// import data from './data.json' assert {
+//     type: 'JSON'};
+//     console.log(data)
+
 
 console.log("hello world")
-
+ 
 
 // program to check if the number is even or odd
 var isEven = function(number) {
@@ -46,42 +59,25 @@ for(var i = 0; i < students.length; i++)
 console.log("total age of students", sum)
 
 //using lodash
-var sumStudents = lodash.sumBy(students, function(o)
- {
-     return o.age; });
-lodash.sumBy(students, 'age');
-console.log(sumStudents)
+//  var sumStudents = lodash.sumBy(students, function(o)
+//   {
+//     return o.age; });
+// lodash.sumBy(students, 'age');
+// console.log(sumStudents)
 
-[
-    {
-      "name": "Alex Sentongo",
-      "age": 15
-    },
-    {
-      "name": "Ronnie Ssali",
-      "age": 10
-    },
-    {
-      "name": "Sarah Dusabe",
-      "age": 12
-    },
-    {
-      "name": "Jackson Samuel",
-      "age": 11
-    }
-  ]
-
+//exercises
 // 1. write a function named readStudents that returns the data in read data.json as an array
-var readStudents = []
-for(let i = 0; i < array.length; i++){
-  for(let j = 0; j < array[i].length; j++){
-    names.push(array[i][j].names)
-  }
-}
-console.log(readStudents(names))
-
 
 // 2. Write a function named sortByFirstName that sorts students data by firstName
+// async function sortByFirstName(){
+//   const theName = [names[0]];
+//   result = []
+// }
+// console.log(data.map(sortByFirstName))
 
 
 // 2. Write a function that returns the oldest student
+// async function oldest(a, b){
+// //   return a.age - b.age;
+// // }
+// // console.log(data.sort(oldest))
