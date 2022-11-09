@@ -3,6 +3,8 @@ import _ from 'lodash'
 
 import fs from 'fs/promises'
 
+import Data from './Data.json';
+
 //const fetch = require('node-fetch');
 
 //const fs = require('fs')
@@ -65,19 +67,4 @@ console.log("total age of students", sum)
 // lodash.sumBy(students, 'age');
 // console.log(sumStudents)
 
-//exercises
-// 1. write a function named readStudents that returns the data in read data.json as an array
 
-// 2. Write a function named sortByFirstName that sorts students data by firstName
-// async function sortByFirstName(){
-//   const theName = [names[0]];
-//   result = []
-// }
-// console.log(data.map(sortByFirstName))
-
-
-// 2. Write a function that returns the oldest student
-// async function oldest(a, b){
-// //   return a.age - b.age;
-// // }
-// // console.log(data.sort(oldest))
