@@ -18,7 +18,7 @@ function firstOne() {
 }
 
 function secondOne() {
-    console.log("last name");
+    ;
 }
 
 setTimeout(firstOne, 1000);
@@ -44,26 +44,18 @@ readStudents();
 // 2. Write a function named sortByFirstName that sorts students data by firstName
 //1 method
 function sortByFirstName() {
-    fs.readFile('data.json', 'utf8', (error, sortByFirstName) => {
+    fs.readFile('data.json', 'utf8', (error, sorting) => {
 
-        var data = JSON.parse(sortByFirstName)
+        var data = JSON.parse(sorting)
 
-        var name = data.sort(
+        var sortedData = data.sort(
 
             function (first, last) {
 
-                if (first.name.toLowerCase() > last.name.toLowerCase()
-
-                ) return 1;
-
-                if (first.name.toLowerCase() < last.name.toLowerCase()
-
-                ) return -1;
-
-                return 0;
+                return first.name.toLowerCase().length > last.name.toLowerCase().length;
             })
 
-        console.log(name)
+        console.log(sortedData)
     })
 }
 sortByFirstName();
@@ -92,7 +84,7 @@ function sortByName() {
         const data = JSON.parse(rawData);
 
         const sortedData = data.sort((first, last) => {
-            return first.name.toLowerCase() - last.name.toLowerCase();
+            return first.name.toLowerCase().length > last.name.toLowerCase().length;
         });
 
         console.log(sortedData);
@@ -114,3 +106,43 @@ function oldest() {
     })
 }
 oldest();
+
+//split get firstName and lastaname
+//first thought sln
+function getFirstTheName() {
+    fs.readFile('data.json', 'utf8', (error, rowString) => {
+        var data = JSON.parse(rowString)//rowString is a variable here
+        var splitName = data.map(function (person) {// here splitName is the assigned variable where data is mapped so that 
+            //it can return the neede result as all
+            const rawData = (splitName = ' ') => {// this line shows that rawData as another asigned variable that calls splitName
+                // in the procedure to split the mapped variable
+                const [firstName, ...lastName] = splitName.split(' ');//this variable asigns splitNmae to split into first and last
+                return {
+                    person: person.name,
+                    firstName: firstName,
+                    lastName: lastName.join(' ')
+                }// this return calls the name in the data and later joins it so that it can get splitted by commors
+            }
+            console.log(rawData(splitName))
+        })
+    })
+}
+getFirstTheName()
+
+//second thought sln. i thought of another method
+function getFirstName() {
+    fs.readFile('data.json', 'utf8', (error, rowString) => {
+        var data = JSON.parse(rowString)
+        var splitName = data.map(function () {
+            const rawData = (splitName = ' ') => {
+                const arr1 = splitName.split(' ');
+                return { arr1: arr1 };
+            }
+            console.log(rawData(splitName))
+        })
+    })
+
+}
+getFirstName()
+
+
