@@ -172,6 +172,44 @@ function matrix(n) {
 matrix(3)
 
 //array of number to find 2 lowest amd 2greatest
+//second thought sln. i thought of another method
+function getFirstTheName() {
+    fs.readFile('data.json', 'utf8', (error, rowString) => {
+        var data = JSON.parse(rowString)
+  
+        data.forEach(function (person) {
+  
+          const nameParts = person.name.split(' ');
+  
+          const splitNames = {
+            firstName: nameParts[0],
+            lastName: nameParts[1]
+          }
+  
+          console.log(splitNames)
+        })
+    })
+  }
+  
+  getFirstTheName()
+
+  function lastNameLenght() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.forEach(function (person) {
+
+            const [firstName, ...lastName] = person.name.split(' ');
+            firstName
+            lastName;
+            for (var i = 0; i < lastName.length; i++) {
+
+                console.log(lastName[i])
+            }
+        })
+        
+    });
+}
+lastNameLenght()
 
 
 

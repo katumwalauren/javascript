@@ -41,9 +41,9 @@ function readStudents() {
 }
 readStudents();
 
-// 2. Write a function named sortByFirstName that sorts students data by firstName
+// 2. Write a function named sortWithFirstName that sorts students data by firstName
 //1 method
-function sortByFirstName() {
+function sortWithFirstName() {
     fs.readFile('data.json', 'utf8', (error, sorting) => {
 
         var data = JSON.parse(sorting)
@@ -58,7 +58,7 @@ function sortByFirstName() {
         console.log(sortedData)
     })
 }
-sortByFirstName();
+sortWithFirstName();
 
 //by name without using functions
 function getName() {
@@ -111,38 +111,75 @@ oldest();
 //first thought sln
 function getFirstTheName() {
     fs.readFile('data.json', 'utf8', (error, rowString) => {
-        var data = JSON.parse(rowString)//rowString is a variable here
-        var splitName = data.map(function (person) {// here splitName is the assigned variable where data is mapped so that 
-            //it can return the neede result as all
-            const rawData = (splitName = ' ') => {// this line shows that rawData as another asigned variable that calls splitName
-                // in the procedure to split the mapped variable
-                const [firstName, ...lastName] = splitName.split(' ');//this variable asigns splitNmae to split into first and last
-                return {
-                    person: person.name,
-                    firstName: firstName,
-                    lastName: lastName.join(' ')
-                }// this return calls the name in the data and later joins it so that it can get splitted by commors
+        var data = JSON.parse(rowString)
+
+        data.forEach(function (person) {
+
+            const [firstName, ...lastName] = person.name.split(' ');
+
+            const splitNames = {
+                firstName: firstName,
+                lastName: lastName.join(' ')
             }
-            console.log(rawData(splitName))
+
+            console.log(splitNames)
         })
     })
 }
 getFirstTheName()
 
-//second thought sln. i thought of another method
-function getFirstName() {
-    fs.readFile('data.json', 'utf8', (error, rowString) => {
-        var data = JSON.parse(rowString)
-        var splitName = data.map(function () {
-            const rawData = (splitName = ' ') => {
-                const arr1 = splitName.split(' ');
-                return { arr1: arr1 };
+// how to sortByFirstName
+function sortByFirstName() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.sort(function (firstPerson, lastPerson) {
+            if (firstPerson.name < lastPerson.name) {
+                return -1;
             }
-            console.log(rawData(splitName))
-        })
+            if (firstPerson.name > lastPerson.name) {
+                return 1;
+            }
+            return 0;
+        });
+
+        console.log(data);
     })
-
 }
-getFirstName()
+sortByFirstName()
 
 
+//write a function that console logs the length of each students last name. By length I mean the total count of letters in a name.
+
+function lastNameLenght() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.forEach(function (person) {
+
+            const [firstName, ...lastName] = person.name.split(' ');
+            firstName
+            lastName;
+            for (var i = 0; i < lastName.length; i++) {
+
+                console.log(lastName[i].length)
+            }
+        })
+
+    });
+}
+lastNameLenght()
+
+//for age less than 10
+function filteringArray() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        var resultArray = [];
+        for(var i=0; i<data.length; i++) {
+          if(data[i].age < 10) {
+            resultArray.push(data[i]);
+          }
+        }
+        
+        console.log(resultArray);
+    });
+}
+filteringArray()
