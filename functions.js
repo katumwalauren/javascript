@@ -211,5 +211,7 @@ function getFirstTheName() {
 }
 lastNameLenght()
 
+let ages = data.map( person => age);
 
+console.log(getAverage(ages))
 
