@@ -131,7 +131,7 @@ function addProperties2() {
                 return {...obj, educ:'secondary'};   
             }
         
-          });
+          })
           
           console.log(newArr);
 
