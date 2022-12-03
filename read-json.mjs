@@ -128,6 +128,22 @@ function getFirstTheName() {
 }
 getFirstTheName()
 
+function getFirstTheName1() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.forEach(function (person) {
+            let [firstName, lastName] = person.name.split(' ');
+            let splitNames = {
+                firstName: firstName,
+                lastName: lastName
+            }
+
+            console.log("splitNames", splitNames)
+        })
+    })
+}
+getFirstTheName1()
+
 // how to sortByFirstName
 function sortByFirstName() {
     fs.readFile('data.json', 'utf8', (error, jsonContent) => {
@@ -154,10 +170,7 @@ function lastNameLenght() {
     fs.readFile('data.json', 'utf8', (error, jsonContent) => {
         var data = JSON.parse(jsonContent)
         data.forEach(function (person) {
-
             const [firstName, ...lastName] = person.name.split(' ');
-            firstName
-            lastName;
             for (var i = 0; i < lastName.length; i++) {
 
                 console.log(lastName[i].length)
@@ -168,18 +181,108 @@ function lastNameLenght() {
 }
 lastNameLenght()
 
+function lastNameLenght1() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.forEach(function (person) {
+            let [firstName, lastName] = person.name.split(' ');
+
+            console.log(lastName.length)
+
+
+        })
+    })
+}
+lastNameLenght1()
 //for age less than 10
-function filteringArray() {
+function filteringArray1() {
     fs.readFile('data.json', 'utf8', (error, jsonContent) => {
         var data = JSON.parse(jsonContent)
         var resultArray = [];
-        for(var i=0; i<data.length; i++) {
-          if(data[i].age < 10) {
-            resultArray.push(data[i]);
-          }
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].age < 10) {
+                resultArray.push(data[i]);
+            }
         }
-        
+
         console.log(resultArray);
     });
 }
-filteringArray()
+filteringArray1()
+
+// using filter to get age less than 10 function
+function filteringArray2() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        const getAge = data.filter(function (ages) {
+            if (ages.age < 10) {
+                return ages
+            }
+        });
+        console.log(getAge)
+
+    });
+}
+filteringArray2()
+
+// computing the total of age of all students
+function sum() {
+    fs.readFile('data.json', 'utf8', (error, rawData) => {
+
+        var data = JSON.parse(rawData)
+        var totalAge = data.reduce(function (total, currentValue) {
+            return total + currentValue.age;
+        }, 0);
+        console.log("totalAge: ", totalAge);
+    })
+}
+sum();
+
+function sum2() {
+    fs.readFile('data.json', 'utf8', (error, rawData) => {
+
+        var data = JSON.parse(rawData)
+        var add = 0;
+        for (var i = 0; i < data.length; i++) {
+            add += data[i].age
+        }
+        console.log("Sum: ", add);
+    })
+}
+sum2();
+// producing array of all students and thier education levels
+
+function addProperties() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        let lowLevels = ['primary'];
+        let highLevels = ['secondary'];
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].age < 12) {
+                lowLevels.push(data[i]);
+            } else {
+                highLevels.push(data[i])
+            }
+        }
+        console.log(lowLevels, highLevels)
+    });
+}
+addProperties()
+
+function addProperties2() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        const newArr = data.map(obj => {
+            if (obj.age < 12) {
+              return {...obj, educ:'primary'};
+            }else{
+                return {...obj, educ:'secondary'};   
+            }
+        
+          });
+          
+          console.log(newArr);
+
+    });
+}
+addProperties2()
