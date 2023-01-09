@@ -1,5 +1,8 @@
 //const fetch = require('node-fetch');
 //const fs = require('fs')
+import { count } from 'console';
+import fs from 'fs'
+
 
 //day and time list
 var daylist = ["Sunday", "Monday", "Tuesday", "wednesday", "Thursday", "Friday", "saturday"]
@@ -118,15 +121,16 @@ console.log(javaType('true'))
 
 //function taking in  numbers variable an double it if even
 function doubleEven(number) {
-    const newNumber = [];
+    const evenNUm = [];
     for (var i = 0; i < number.length; i++) {
-        if (number[i] % 2 === 0) {
-            newNumber.push(number[i] * 2);
+        if (number[i] % 2 == 0) {
+            evenNUm.push(number[i] * number[i])
         }
     }
-    return newNumber
+    return evenNUm
 }
-console.log(doubleEven([1, 2, 3, 4, 5, 6]))
+
+console.log(doubleEven(1, 2, 3, 4, 5, 6, 7))
 
 //function taking in  numbers variable and squares it if odd
 function squareOdd(number) {
@@ -138,7 +142,7 @@ function squareOdd(number) {
     }
     return thatNumber
 }
-console.log(squareOdd([1, 2, 3, 4, 5, 6]))
+console.log(squareOdd(1, 2, 3, 4, 5, 6))
 
 //function taking in a num variable and doubles it
 function doubleIt(num) {
@@ -176,42 +180,79 @@ matrix(3)
 function getFirstTheName() {
     fs.readFile('data.json', 'utf8', (error, rowString) => {
         var data = JSON.parse(rowString)
-  
+
         data.forEach(function (person) {
-  
-          const nameParts = person.name.split(' ');
-  
-          const splitNames = {
-            firstName: nameParts[0],
-            lastName: nameParts[1]
-          }
-  
-          console.log(splitNames)
+
+            const nameParts = person.name.split(' ');
+
+            const splitNames = {
+                firstName: nameParts[0],
+                lastName: nameParts[1]
+            }
+
+            console.log(splitNames)
         })
     })
-  }
-  
-  getFirstTheName()
+}
 
-  function lastNameLenght() {
+getFirstTheName()
+
+function lastNameLenght() {
     fs.readFile('data.json', 'utf8', (error, jsonContent) => {
         var data = JSON.parse(jsonContent)
         data.forEach(function (person) {
 
-            const [firstName, ...lastName] = person.name.split(' ');
-            firstName
-            lastName;
-            for (var i = 0; i < lastName.length; i++) {
+            const nameParts = person.name.split(' ');
 
-                console.log(lastName[i])
-            }
+            console.log(nameParts.length())
         })
-        
+
     });
 }
 lastNameLenght()
 
-let ages = data.map( person => age);
+//let ages = data.map(person => ages);
 
-console.log(getAverage(ages))
+//console.log(getAverage(ages))
+
+//number of occurences a letter appears in a word
+function countLetter(str) {
+    let count = 0
+    let unique = "", obj = {}
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === ' ') continue;
+        let index = str.indexOf(str[i], 0)
+        while (index != -1) {
+            count++;
+            index = str.indexOf(str[i], index + 1)
+        }
+        if (unique.indexOf(str[i]) === -1) {
+            unique += str[i];
+            console.log(str[i] + ": " + count)
+        }
+        count = 0;
+    }
+}
+countLetter("theLordismyshephard")
+
+//computing factors
+const factors = number => Array
+    .from(Array(number + 1), (_, i) => i)// the i helps to give positon of an array
+    .filter(i => number % i === 0)
+console.log(factors(20))
+
+//generating a string id(specified length) ramdomly
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    var characterLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characterLength))
+
+    }
+    return result;
+}
+console.log(makeid(5))
+
+//
 

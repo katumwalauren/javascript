@@ -1,5 +1,6 @@
 import fs from 'fs'
 import sortBy from 'lodash/sortBy.js'
+import { DefaultDeserializer } from 'v8';
 
 //callback function 1
 function myName(message, callback) {
@@ -240,7 +241,6 @@ sum();
 
 function sum2() {
     fs.readFile('data.json', 'utf8', (error, rawData) => {
-
         var data = JSON.parse(rawData)
         var add = 0;
         for (var i = 0; i < data.length; i++) {
@@ -274,15 +274,83 @@ function addProperties2() {
         var data = JSON.parse(jsonContent)
         const newArr = data.map(obj => {
             if (obj.age < 12) {
-              return {...obj, educ:'primary'};
-            }else{
-                return {...obj, educ:'secondary'};   
+                return { ...obj, educ: 'primary' };
+            } else {
+                return { ...obj, educ: 'secondary' };
             }
-        
-          });
-          
-          console.log(newArr);
+
+        });
+
+        console.log(newArr);
 
     });
 }
 addProperties2()
+
+
+function sortWithFirstName2() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.sort(function (firstPerson, lastPerson) {
+            if (firstPerson.name < lastPerson.name) {
+                return -1;
+            }
+            if (firstPerson.name > lastPerson.name) {
+                return 1;
+            }
+            return 0;
+        })
+        var jsonContent = JSON.stringify(data);
+        console.log(jsonContent);
+
+        fs.writeFile("sorted.json", jsonContent, 'utf8', function (err) {
+            if (err) {
+                console.log("error");
+                return console.log(err);
+            }
+
+        });
+
+    })
+}
+sortWithFirstName2()
+
+// how to add year of birth to each student code
+function addYearOfBirth() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        data.forEach(function (person) {
+            var currentYear = new Date().getFullYear()
+            var age = (person.age)
+            //var dateOfBirth = currentYear - age
+            person.dateOfBirth = currentYear - age;
+
+            console.log(person)
+        })
+
+    });
+}
+addYearOfBirth()
+
+//how to divide an array of students into  two equal groups and give each skl
+
+function divideTheGroup() {
+    fs.readFile('data.json', 'utf8', (error, jsonContent) => {
+        var data = JSON.parse(jsonContent)
+        const middleIndex = Math.ceil(data.length / 2);
+        const firstGroup = data.splice(0, middleIndex);
+        const secondGroup = data.splice(-middleIndex);
+        firstGroup.forEach(function(person){
+            person.school = 'MUK UNIVERSITY'
+        });
+        console.log('firstGroup', firstGroup)
+        secondGroup.forEach(function(person){
+            person.school = 'KYU UNIVERSITY'
+        });
+        console.log('secondGroup', secondGroup)
+    })
+}
+divideTheGroup()
+
+console.log("hello world")
+

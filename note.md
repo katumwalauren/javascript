@@ -10,8 +10,8 @@ javascript notes
 >> 
 >>  Null; this usually means nothing, empty or undifined eg. zero
 >>  
->>  arrays; is an object thst can store multiple values at once. eg.const array1 = ["eat", "sleep"]< array of numbers, onst numberArray = [ 2, 4, 6, 8]; array of numbers
->>  functions; it helps to perform tasks or calculations fro procedures. eg let x = function (num) { return num * num }; console.log(x(4));
+>>  arrays; is an object that can store multiple values at once. eg.const array1 = ["eat", "sleep"]< array of numbers, onst numberArray = [ 2, 4, 6, 8]; array of numbers
+>>  functions; it helps to perform tasks or calculations for procedures. eg let x = function (num) { return num * num }; console.log(x(4));
 >>  
 >>  objects; are containers for named values. 
 >>  
@@ -28,8 +28,8 @@ oparetors
 >=	greater than or equal to
 <=	less than or equal to
 ?	ternary operator
-** asigning a result to a a variable means asigning it witha function
-** when arranging a string in alphabetical order, it should be written in small letters
+** asigning a result to a a variable means asigning it with a function
+** when arranging a string in order, it should be written in small letters
 ## number[i] * i => is multiplying anumber
 ## number[i] * number[i] => is squaring
 <> function nameOfTheFunction(){
@@ -70,5 +70,14 @@ sortByFirstName();
 sortedData 
 dataSortedByName 
 sortedByNameData
-
-
+ 
+ // wen addding, multiplying and subtracting; similllar details are eliminated first
+ //objects take in {}
+ //arrays take in []
+// names given to the values inside a function parantheses are called  parameters
+// concatention is used to join strings together and Math.random()
+// Math.floor helps not to return decimal points in javascript
+// case are writen as name.toUpperCase()
+//interpotation is wen an expression  is put in a string  eg const name="Abdul Rawoof"  console.log(`Employee name is ${name})
+//length helps to find number of strings
+// wen writing multiple ifs we use result and wen wroting one we use return
