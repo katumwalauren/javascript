@@ -81,3 +81,11 @@ sortedByNameData
 //interpotation is wen an expression  is put in a string  eg const name="Abdul Rawoof"  console.log(`Employee name is ${name})
 //length helps to find number of strings
 // wen writing multiple ifs we use result and wen wroting one we use return
+// filter function returns a boolean
+//indexOf is getting an old man out string
+//includes checks whether the string is in a given field of data
+//undifined  in the terminal means some value in the code is not defined
+//NaN is the short form of is not number. 
+
+//>>“Cloning” is defined as making a copy of the original object with same properties included in it. These JavaScript objects are stored in memory with the help of references.
+// person is not iterable means person is on the write hnd side of the assigment

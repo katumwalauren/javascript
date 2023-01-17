@@ -37,3 +37,15 @@ async function testThat (){
     console.log(`you could ${response.data.activity}`)
 }
 testThat()
+//>> how to get all in a nested object
+    //let allFriends = new Map();
+
+    //Object.keys(employees).forEach((key) => {
+
+        //allFriends.set(key, employees[key]);
+    //})
+     //console.log("allFriends", allFriends)
+
+     //>> another way to get json data
+     //import schoolDetails from './school.json' assert {type: 'json'}
+     //consoe.log(schoolDetails)

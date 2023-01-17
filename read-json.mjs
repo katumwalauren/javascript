@@ -1,6 +1,6 @@
 import fs from 'fs'
 import sortBy from 'lodash/sortBy.js'
-import { DefaultDeserializer } from 'v8';
+
 
 //callback function 1
 function myName(message, callback) {
@@ -61,7 +61,7 @@ function sortWithFirstName() {
 }
 sortWithFirstName();
 
-//by name without using functions
+//by name with using functions
 function getName() {
 
     fs.readFile('data.json', 'utf8', (error, names) => {
@@ -340,11 +340,11 @@ function divideTheGroup() {
         const middleIndex = Math.ceil(data.length / 2);
         const firstGroup = data.splice(0, middleIndex);
         const secondGroup = data.splice(-middleIndex);
-        firstGroup.forEach(function(person){
+        firstGroup.forEach(function (person) {
             person.school = 'MUK UNIVERSITY'
         });
         console.log('firstGroup', firstGroup)
-        secondGroup.forEach(function(person){
+        secondGroup.forEach(function (person) {
             person.school = 'KYU UNIVERSITY'
         });
         console.log('secondGroup', secondGroup)
@@ -353,4 +353,29 @@ function divideTheGroup() {
 divideTheGroup()
 
 console.log("hello world")
+
+//a man brought a certain number of golf balls for shs 2000.if each ball had costed shs.200 less.he could have 
+//brought five more for the same money. write a function showing the number of golf balls he bought.
+function getNumberOfGolfBalls(costOfBalls, moreBalls) {
+    var numberOfBalls = 0;
+    var theTotalBalls = numberOfBalls + moreBalls
+    var thePriceOfEachBall = (costOfBalls /numberOfBalls )  - (costOfBalls / theTotalBalls)
+    if (thePriceOfEachBall < 200) {
+        return theTotalBalls
+    } else {
+        return thePriceOfEachBall
+    } 
+}
+console.log('getNumberOfGolfBalls',getNumberOfGolfBalls(2000,5))
+
+// cloning object
+
+const person = { age: 10, name: "Allan", version: 0 }
+function cloningTheObject() {
+    var counter;
+     for (counter = 1; counter < 5; ++counter) {
+         console.log(person)
+     }
+ }
+ cloningTheObject()
 
