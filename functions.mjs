@@ -1,5 +1,4 @@
-//const fetch = require('node-fetch');
-//const fs = require('fs')
+
 import { count } from 'console';
 import fs from 'fs'
 

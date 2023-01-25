@@ -1,6 +1,6 @@
 import fs from 'fs'
 import lodash from 'lodash'
-import { version } from 'os';
+
 
 
 //another way to read data
@@ -215,29 +215,24 @@ countingObject()
 
 // write a function that returns the oldest friend among all the employees 
 function gettingOldest() {
-    // const oldest = (a, b) => {
-    //     if (b.age) {
-    //         return 1;
-    //     } else if (a.age) {
-    //         return -1;
-    //     } else {
-    //         return 1
-    //     }
-    // }
-    // console.log("oldest", oldest)
-    //console.log(Object.entries(employees))
-
+    Object.values(employees).map(function(value) {
+    var oldestPerson =  value.sort(function (a, b) {
+        return b.age - a.age;
+    })
+    console.log('oldestPerson', oldestPerson[0])
+    })
 }
 gettingOldest()
 
 // write a function that returns the total age of all friends of the employees 
 function gettingTotalAge() {
-    //var uniqItemsArray = .uniq(Object.entries(employees))
-    //var add = 0;
-    //for (var i = 0; i < uniqItemsArray.length; i++) {
-    //add += data[i].age
-    //}
-    //console.log("totalAge: ", uniqItemsArray);
+    Object.values(employees).map(function(value) {
+        var add = 0;
+        for (var i = 0; i < value.length; i++) {
+            add += value[i].age
+        }
+        console.log('sumPersons', add)
+        })
 
 }
 gettingTotalAge();
@@ -352,25 +347,18 @@ totalOfSchools()
 
 
 //1. Write code examples that show the use of javascript logical operators
-//a) with equal to using values
-console.log(8 == 8)
-//b) equal value to type
-let v;
-console.log(v === 5)
-//c) not equal value to type
-let c;
-console.log(c !== 8)
-//d) not equal
-let r;
-console.log(r != 4)
-//e) greater than
-console.log(2 > 1)
-//f) less than
-console.log(4 < 1)
-//g) greater than or equal to
-console.log(1 >= 1)
-//h) less or equal to
-console.log(5 <= 1)
+//a) AND operator
+var a = 200;
+var b = 300;
+console.log(a > 100 && b < 500)
+//b) OR operator
+var x = 200;
+var y = 300;
+console.log(x == 200 || y == 300)
+//c) NOT operator
+var c = 200;
+var d = 300;
+console.log(!(c < d))
 
 
 //2. Write a code example that shows the use of `Object.values` function 
@@ -397,9 +385,8 @@ console.log('thePeoplesValues', thePeoplesValues)
 const person = { age: 10, name: "Allan", version: 0 }
 const cloning = Object.assign({}, person)
 console.log('cloning', cloning)
-// cloning object
 function cloningTheObject() {
-   var counter;
+    var counter;
     for (counter = 1; counter < 5; ++counter) {
         person.age++;
         person.version++;
@@ -407,3 +394,67 @@ function cloningTheObject() {
     }
 }
 cloningTheObject()
+
+//2
+const family = {
+    father: {
+        name: 'allan lukwago',
+        age: 32,
+    },
+    mother: {
+        name: 'sarah dusabe',
+        age: 30,
+    },
+    children: [
+        {
+            name: 'juru lukwago',
+            age: 2,
+        },
+        {
+            name: 'jane lukwago',
+            age: 4,
+        },
+    ],
+};
+
+// write a function that modifies this family object with each name split into first and last name
+// while also being capitalized
+let keyFamilyNames = Object.keys(family)
+console.log('family', keyFamilyNames)
+
+function modifiedData(name) {
+    let [firstName, lastName] = name.toUpperCase().split(' ')
+    let splitName = {
+        firstName: firstName,
+        lastName: lastName,
+    }
+    console.log(splitName)
+}
+
+const modifiedFather = {
+    name: modifiedData(family.father.name),
+    age: 32,
+}
+console.log('modifying', modifiedFather)
+
+//difference of father's age  and each child
+function getAgeDiference() {
+    var ageDifferenceForTheFirstChild = [Object.values(family)[0].age] - [Object.values(family.children)[0].age]
+    console.log('ageDifference', ageDifferenceForTheFirstChild)
+    var ageDifferenceForTheSecondChild = [Object.values(family)[0].age] - [Object.values(family.children)[1].age]
+    console.log('ageDifference', ageDifferenceForTheSecondChild)
+}
+getAgeDiference()
+
+//3. Write a function that returns the sum of the entire family's ages
+function sumFamilyAge() {
+    var ageSum = Object.values(family)[0].age + Object.values(family)[1].age
+    for (var i = 0; i < family.children.length; i++) {
+        ageSum = ageSum + family.children[i].age
+    }
+    console.log('sumAge', ageSum)
+}
+sumFamilyAge()
+
+
+
