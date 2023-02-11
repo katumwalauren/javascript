@@ -5,7 +5,8 @@ javascript notes
 >> Numbers; these are produced in binary formart eg. 74, 2, 1
 >> 
 >> String; is a primitive data type that is used to work with texts eg. const a = 'hello'. common operaters are '+' and '\'
->> 
+>> .at(-1) for last lettter  in the string,, .at(0) firsst letter
+>> substring(1) returns all the letters in the string apart from the first one
 >> boolean; these are premitive data types that use true for correct and false for incorrect. it is usually used with while or if
 >> 
 >>  Null; this usually means nothing, empty or undifined eg. zero
@@ -90,3 +91,20 @@ sortedByNameData
 //>>“Cloning” is defined as making a copy of the original object with same properties included in it. These JavaScript objects are stored in memory with the help of references.
 // person is not iterable means person is on the right hand side of the assigment
 // modification of an object means changing something in an object
+// returning means return result without console logging inside the function
+// object.assign assigns object to a new result
+//an expretion is something that produces a value
+//htm can be coded in a text string
+//method is defined using object.method()
+//an operater is avalid parameter
+ >> a parameter is a named variable passed in a function eg function getInitialLetters(name)
+//one parameter should be passed for each argument
+>>an argument is an object wc is local to the function and can be used to access a parameter called in a function
+function doubleIt(num) {
+    return num * num;
+}
+console.log(doubleIt(7)) double it is an argument
+code to obtain a random number eg 5 and 9 => Math.floor((Math.random() * 5) + 5)
+//wen defining a variable, let is used
+//javascript values are comprised of (javascript types)=> booleans, strings, number, arrays etc
+//math.max is used to get the greatest number

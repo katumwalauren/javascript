@@ -1,5 +1,6 @@
 import fs from 'fs'
 import lodash from 'lodash'
+import { join } from 'path';
 
 
 
@@ -77,7 +78,6 @@ function getFirstTheName1() {
                 firstName: firstName,
                 lastName: lastName
             }
-
             console.log("splitNames", splitNames)
         })
     })
@@ -215,24 +215,24 @@ countingObject()
 
 // write a function that returns the oldest friend among all the employees 
 function gettingOldest() {
-    Object.values(employees).map(function(value) {
-    var oldestPerson =  value.sort(function (a, b) {
-        return b.age - a.age;
-    })
-    console.log('oldestPerson', oldestPerson[0])
+    Object.values(employees).map(function (value) {
+        var oldestPerson = value.sort(function (a, b) {
+            return b.age - a.age;
+        })
+        console.log('oldestPerson', oldestPerson[0])
     })
 }
 gettingOldest()
 
 // write a function that returns the total age of all friends of the employees 
 function gettingTotalAge() {
-    Object.values(employees).map(function(value) {
+    Object.values(employees).map(function (value) {
         var add = 0;
         for (var i = 0; i < value.length; i++) {
             add += value[i].age
         }
         console.log('sumPersons', add)
-        })
+    })
 
 }
 gettingTotalAge();
@@ -374,7 +374,8 @@ const thePeople = {
         { name: "john", age: 30 },
         { name: "alice", age: 12 }
     ]
-}// the question needs me to use objects that have data inside then and this is one of them
+}
+// the question needs me to use objects that have data inside then and this is one of them
 //object.keys is for recieving object items
 //object.values is for getting values inside each item
 let thePeoplesValues = Object.values(thePeople)
@@ -395,7 +396,6 @@ function cloningTheObject() {
 }
 cloningTheObject()
 
-//2
 const family = {
     father: {
         name: 'allan lukwago',
@@ -416,27 +416,6 @@ const family = {
         },
     ],
 };
-
-// write a function that modifies this family object with each name split into first and last name
-// while also being capitalized
-let keyFamilyNames = Object.keys(family)
-console.log('family', keyFamilyNames)
-
-function modifiedData(name) {
-    let [firstName, lastName] = name.toUpperCase().split(' ')
-    let splitName = {
-        firstName: firstName,
-        lastName: lastName,
-    }
-    console.log(splitName)
-}
-
-const modifiedFather = {
-    name: modifiedData(family.father.name),
-    age: 32,
-}
-console.log('modifying', modifiedFather)
-
 //difference of father's age  and each child
 function getAgeDiference() {
     var ageDifferenceForTheFirstChild = [Object.values(family)[0].age] - [Object.values(family.children)[0].age]
@@ -456,5 +435,22 @@ function sumFamilyAge() {
 }
 sumFamilyAge()
 
+//function returning an array of initial capital letter of the name
 
+//console.log(Object.entries(family).map(([key, value]) => value.name))
+// console.log(Object.entries(family.children).map(([key, value]) => value.name))
 
+function getInitialLetters(name) {
+    var names = name.split(" ");
+    var initials = names[0].charAt(0).toUpperCase() + names[1].charAt(0).toUpperCase()
+    return initials
+}
+function getInitial() {
+    const all = getInitialLetters(Object.values(family)[0].name)
+    const all1 = getInitialLetters(Object.values(family)[1].name)
+    const all2 = getInitialLetters(Object.values(family.children)[0].name)
+    const all3 = getInitialLetters(Object.values(family.children)[1].name)
+
+    console.log(all, all1, all2, all3)
+}
+console.log(getInitial())

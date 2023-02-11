@@ -49,3 +49,45 @@ testThat()
      //>> another way to get json data
      //import schoolDetails from './school.json' assert {type: 'json'}
      //consoe.log(schoolDetails)
+
+function getInitialLetters(name) {
+    var names = name.split(" ");
+    var initials = names[0].charAt(0).toUpperCase() + names[1].charAt(0).toUpperCase()
+    return initials
+}
+const all = getInitialLetters(Object.values(family)[0].name)
+const all1 = getInitialLetters(Object.values(family)[1].name)
+const all2 = getInitialLetters(Object.values(family.children)[0].name)
+const all3 = getInitialLetters(Object.values(family.children)[1].name)
+
+console.log(all, all1, all2, all3)
+
+function modifiedData(name) {
+    let [firstName, lastName] = name.toUpperCase().split(' ')
+    let splitName = {
+        firstName: firstName,
+        lastName: lastName,
+    }
+    return splitName
+    //return {firstName: firstName, lastName: lastName, age: family.father.age}
+}
+ const new_obj = (modifiedData({ firstName: firstName, lastName: lastName, age: family.father.age }))
+// const new_obj1 = (modifiedData({ firstName: firstName, lastName: lastName, age: family.mother.age }))
+// const new_obj2 = (modifiedData({ firstName: firstName, lastName: lastName, age: family.children.age }))
+// const newObj = ( new_obj, new_obj1, new_obj2, new_obj3)
+
+// families
+var found =  families.map(obj => Object.values(obj)).flat()
+function findEmployed() {
+    var parents = families.map(function(item) {
+            return {
+                father : item.father,
+                mother: item.mother
+            }
+        })
+    
+    console.log(parents)
+    }
+    findEmployed()
+    var results = found.filter(a => a.isEmployed)
+    console.log(results)

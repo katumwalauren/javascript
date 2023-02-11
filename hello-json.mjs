@@ -3,39 +3,26 @@ import _ from 'lodash'
 
 import fs from 'fs/promises'
 
-import Data from './Data.json';
-
-//const fetch = require('node-fetch');
-
-//const fs = require('fs')
-
-//const lodash =  require("lodash");
-
-// import data from './data.json' assert {
-//     type: 'JSON'};
-//     console.log(data)
-
-
 console.log("hello world")
- 
+
 
 // program to check if the number is even or odd
-var isEven = function(number) {
-if(number % 2 === 0){ 
-    return true; 
-}else{
-     return false; 
+var isEven = function (number) {
+    if (number % 2 === 0) {
+        return true;
+    } else {
+        return false;
     }
 };
 console.log(isEven(7))
 
 //string length
-const words = function(string) {
-if(string = words.length < 5) {
-    return 'is short'
-} else {
-    return 'is long'
-}
+const words = function (string) {
+    if (string = words.length < 5) {
+        return 'is short'
+    } else {
+        return 'is long'
+    }
 }
 console.log(words('can'))
 
@@ -47,15 +34,14 @@ console.log(a2)
 
 
 const students = [
-    { name: "Allan Lukwago", age: 32},
-    { name: "Betty Nassali", age: 28},
-    { name: "Jane Doe", age: 28}
+    { name: "Allan Lukwago", age: 32 },
+    { name: "Betty Nassali", age: 28 },
+    { name: "Jane Doe", age: 28 }
 ]
-  
-  // write a function that returns the total age of all the students
+
+// write a function that returns the total age of all the students
 var sum = 0
-for(var i = 0; i < students.length; i++) 
-{
+for (var i = 0; i < students.length; i++) {
     sum += students[i].age
 }
 console.log("total age of students", sum)
@@ -67,6 +53,42 @@ console.log("total age of students", sum)
 // lodash.sumBy(students, 'age');
 // console.log(sumStudents)
 
+var student = {
+    name: "Katumwa Lauren",
+    sclass: "X",
+    rollno: 14
+}
+// function returning list of properties
+function getListProp() {
+    var theStudent = Object.keys(student)
+    console.log('theStudent', theStudent)
+}
+getListProp()
 
 
+// function to put something in a javascript object
+const life = {
+
+}
+function addObject() {
+    var newVariable = Object.assign({},life, {
+        name: "katumwa Lauren",
+        age: 20,
+        school: "L University"
+    })
+    console.log("newVariable", newVariable)
+}
+addObject()
+const goodLife = {
+    Home: "flat house",
+    car: "Nissan",
+    bags: " versace"
+}
+//function deleting a property
+function deleteProp() {
+    delete goodLife.car
+    console.log(goodLife)
+}
+deleteProp()
+//
 
