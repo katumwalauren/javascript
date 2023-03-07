@@ -91,7 +91,7 @@ sortedByNameData
 //>>“Cloning” is defined as making a copy of the original object with same properties included in it. These JavaScript objects are stored in memory with the help of references.
 // person is not iterable means person is on the right hand side of the assigment
 // modification of an object means changing something in an object
-// returning means return result without console logging inside the function
+// returning means return result without console logging inside the function. if console.log is given, then delete it
 // object.assign assigns object to a new result
 //an expretion is something that produces a value
 //htm can be coded in a text string

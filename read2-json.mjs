@@ -2,8 +2,6 @@ import fs from 'fs'
 import lodash from 'lodash'
 import { join } from 'path';
 
-
-
 //another way to read data
 function readData(useData) {
     fs.readFile('data.json', 'utf8', (error, rawString) => {
@@ -55,7 +53,6 @@ function getName() {
     })
 }
 getName();
-
 
 // 3. Write a function that returns the oldest student
 function oldest() {

@@ -161,7 +161,6 @@ function schoolWithPercent() {
     return schoolWithPercent
 }
 //console.log(schoolWithPercent())
-
 function SortPercent() {
     const WithPercent = schoolWithPercent()
     const sortWithPercent = WithPercent.sort(function (a, b) {
@@ -245,14 +244,17 @@ function findEmployed() {
     return filterEmployed1
 }
 // using the function from question 1, write a function that returns the oldest employed parent
-function getOldestChildOfEmployed() {
+function getOldestParentEmployed() {
     const oldest = findEmployed()
-    var oldestchild = oldest.sort(function (a, b) {
-        return b.age - a.age;
-    })
-    return oldestchild[0]
+    var age = oldest.sort((a, b) => b.age - a.age)
+    return age[0]
+}
+
+// write a function that returns the names of the children of the oldest employed parent
+function getOldestChildOfEmployed() {
+    const theParent = getOldestParentEmployed()
+    const allOfThem = families.find(item => item.father === theParent)
+    const theChild = allOfThem.children
+    return theChild
 }
 console.log(getOldestChildOfEmployed())
-
-// write a function returns the names of the children of the oldest employed parent
-

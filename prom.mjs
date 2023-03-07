@@ -1,4 +1,4 @@
-const axiosRequest =  require('axios')
+const axiosRequest = require('axios')
 
 // let response =  axiosRequest.get('https://www.boredapi.com/api/activity')
 // console.log(`you could ${response.data.activity}`)
@@ -7,11 +7,11 @@ const axiosRequest =  require('axios')
 //promise with async and await
 // 1. promise is a special kind of javascript object that contains another object
 // it is formed of three states : fulfilled, reject and resolve
-const promise = new Promise((resolve, reject) =>{
+const promise = new Promise((resolve, reject) => {
     const string1 = " coding is good"
     const string2 = " coding is good"
-    if (string1 === string2 ) {
-    resolve()
+    if (string1 === string2) {
+        resolve()
     } else {
         reject()
     }
@@ -26,29 +26,29 @@ promise
 //     .catch((err) => console.error(err))
 
 //asynchronous : is placed before the function eg 
-async function testIt(){
+async function testIt() {
     return 'Lauren'
-} 
+}
 testIt()
 
 //await is used to wait for a promise and it can only be used inside an async function eg
-async function testThat (){
-    let response =  await axiosRequest.get('https://www.boredapi.com/api/activity')
+async function testThat() {
+    let response = await axiosRequest.get('https://www.boredapi.com/api/activity')
     console.log(`you could ${response.data.activity}`)
 }
 testThat()
 //>> how to get all in a nested object
-    //let allFriends = new Map();
+//let allFriends = new Map();
 
-    //Object.keys(employees).forEach((key) => {
+//Object.keys(employees).forEach((key) => {
 
-        //allFriends.set(key, employees[key]);
-    //})
-     //console.log("allFriends", allFriends)
+//allFriends.set(key, employees[key]);
+//})
+//console.log("allFriends", allFriends)
 
-     //>> another way to get json data
-     //import schoolDetails from './school.json' assert {type: 'json'}
-     //consoe.log(schoolDetails)
+//>> another way to get json data
+//import schoolDetails from './school.json' assert {type: 'json'}
+//consoe.log(schoolDetails)
 
 function getInitialLetters(name) {
     var names = name.split(" ");
@@ -71,23 +71,33 @@ function modifiedData(name) {
     return splitName
     //return {firstName: firstName, lastName: lastName, age: family.father.age}
 }
- const new_obj = (modifiedData({ firstName: firstName, lastName: lastName, age: family.father.age }))
+const new_obj = (modifiedData({ firstName: firstName, lastName: lastName, age: family.father.age }))
 // const new_obj1 = (modifiedData({ firstName: firstName, lastName: lastName, age: family.mother.age }))
 // const new_obj2 = (modifiedData({ firstName: firstName, lastName: lastName, age: family.children.age }))
 // const newObj = ( new_obj, new_obj1, new_obj2, new_obj3)
 
 // families
-var found =  families.map(obj => Object.values(obj)).flat()
+var found = families.map(obj => Object.values(obj)).flat()
 function findEmployed() {
-    var parents = families.map(function(item) {
-            return {
-                father : item.father,
-                mother: item.mother
-            }
-        })
-    
+    var parents = families.map(function (item) {
+        return {
+            father: item.father,
+            mother: item.mother
+        }
+    })
+
     console.log(parents)
-    }
-    findEmployed()
-    var results = found.filter(a => a.isEmployed)
-    console.log(results)
+}
+findEmployed()
+var results = found.filter(a => a.isEmployed)
+console.log(results)
+function getOldestChildOfEmployed() {
+    const allOfThem = families.map(item => item.children)
+    return allOfThem
+}
+console.log(getOldestChildOfEmployed())
+    // const thePerson = getOldestParentEmployed()
+    let getNames = families.find(function (item) {
+        return getOldestParentEmployed(item)
+    })
+    return getNames
