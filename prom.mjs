@@ -101,3 +101,12 @@ console.log(getOldestChildOfEmployed())
         return getOldestParentEmployed(item)
     })
     return getNames
+
+    function getDividedNum(){
+        var numArr =  [30,10,50,40,92,12,4];
+        var divide =  numArr.map(function(item){
+           return item/2
+        })
+       console.log(divide)
+       }
+       getDividedNum()

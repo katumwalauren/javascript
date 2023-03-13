@@ -293,7 +293,6 @@ function getallSchools() {
 getallSchools()
 
 //function that reads data and returns an array  of school names
-
 function schoolNames() {
     allSchools(function (schoolDetails) {
         let getNames = schoolDetails.map((school) => school.name)
@@ -328,7 +327,6 @@ function namesThatStartWiyhSt() {
 }
 namesThatStartWiyhSt()
 //function that reads data and returns total number of schools
-
 function totalOfSchools() {
     allSchools(function (schoolDetails) {
         var count = 0;

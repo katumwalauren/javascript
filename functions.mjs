@@ -32,7 +32,7 @@ function reverse_a_number(i) {
 }
 console.log(Number(reverse_a_number(32243)));
 
-// program to check if the string is palindrome or not
+// program to check if the string is palindrome or not//palindore is a number or string that remains the same even wen it's reversed
 function checkPalindrome(string) {
     const arrayValues = string.split('');
     const reverseArrayValues = arrayValues.reverse();
@@ -58,7 +58,7 @@ function combinator(s) {
 }
 console.log(combinator("dog"))
 
-//arrange words in alphabet
+//arrange words in alphabet. they should all be in small lettes
 function sortThis(str) {
     var arr = str.split('')
     var sorted = arr.sort()
@@ -150,7 +150,7 @@ function doubleIt(num) {
 console.log(doubleIt(7))
 
 //takes in a name and adds Hello to it
-function printMyName(MyName) {
+function printMyName() {
     const name = 'Lauren'
     return "Hello" + " " + name;
 }
