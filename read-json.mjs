@@ -101,7 +101,7 @@ const performence = [
         }
     },
 ]
-//write a functionthat returns the worst performing skl
+//write a function that returns the worst performing skl
 //var theSumPerformance = performence.filter(performence => performence.studentsPerformance)
 //console.log(theSumPerformance)
 function getSumOfStudentsPerf() {

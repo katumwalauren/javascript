@@ -6,7 +6,7 @@ var word = "Lauren"
 console.log(word)
 
 //b) Number e.g. here variable x contains a number 2
-var x = 2
+let x = 2
 console.log(x)
 
 //c) Boolean e.g. here variable a contains a boolean true
@@ -15,7 +15,7 @@ console.log(a)
 
 //d)  object. here variable goodLife1 contains an object that uses curly braces having a key called job and a value 
 //called true
-var theLife1 = { job: true }
+const theLife1 = { job: true }
 console.log(theLife1)
 
 //1.1)An array of objets that has three fields of different types. here i call a variable called myLife, open curly braces
@@ -27,33 +27,6 @@ var myLife = {
 }
 console.log(myLife)
 
-//2) fundamentals functions
-//2.1)functions of the types below. this function  attains a string called "lauren"
-function getString() {
-    var word = "Lauren"
-    console.log(word)
-}
-getString()
-
-//this function attains a  number 2
-function getNum() {
-    var y = 2
-    console.log(y)
-}
-getNum()
-
-//this function attains boolean true
-function getBoolean() {
-    const b = true
-    console.log(b)
-}
-getBoolean()
-//this function attains object
-function getObject() {
-    var theLife2 = { job: true }
-    console.log(theLife2)
-}
-getObject()
 
 //fundamental functions e.g i)
 function msg() {
@@ -143,32 +116,41 @@ console.log(a > 0 || b > 0)
 //boys with age greater than 10 who stay in kampala are called pre-Kampala-teens, while boys with age greater than 10 
 //who stay outside Kampala are called pre-ug-teens. write a function that shows that a given boy a pre-kampala-teen or
 // pre-ug-teen
-function getNickName(boysInKampalaWithAge, boysOutSideKampalaWithAge) {
-    if (boysInKampalaWithAge > 10) {
-        return "is pre-kampala-teens."
-    } else if (boysOutSideKampalaWithAge > 10) {
-        return "is pre-ug-teens."
-    } else {
-        return "is error."
+function getNickName(age) {
+    let boysInKampala;
+   let boysOutSideKampala;
+    if (age > 10) {
+        boysInKampala = "is pre-kampala-teen."
+    } if (age > 10) {
+        boysOutSideKampala = "is pre-ug-teen."
     }
+   //return boysOutSideKampala;
+  return  boysInKampala
 }
-console.log("boy1",getNickName(11))
-console.log("boy2",getNickName(15))
-console.log("boy3",getNickName(10))
+console.log("boy1", getNickName(11))
+console.log("boy2", getNickName(30))
+console.log("boy3", getNickName(20))
 
 
 //employees with salary less or equal to 10,000 with no kid are called pros .employees with salary less or 
 //equal to 10,000 with kids are called regulars.employees with salary above or equal to 10,000 with 
 //no kid are called pros. write a function that returns whether an emplooyee is a pro or regular
-function getEmployees(emplooyeesWithNoKidsWithSalary1, emplooyeesWithKidsWithSalary, emplooyeesWithNoKidsWithSalary2) {
-    if (emplooyeesWithNoKidsWithSalary1 <= 10000) {
-        return " are pros."
-    } else if (emplooyeesWithKidsWithSalary <= 10000) {
-        return "are regulars."
-    } else if (emplooyeesWithNoKidsWithSalary2 >= 10000) {
-        return "are pros."
+function getEmployees(salary) {
+    let emplooyeesWithNoKids1;
+    let emplooyeesWithKids;
+    let emplooyeesWithNoKids;
+    if (salary <= 10000) {
+        emplooyeesWithNoKids1 = " are pros."
+    } if (salary <= 10000) {
+        emplooyeesWithKids = "are regulars."
+    } if (salary >= 10000) {
+        emplooyeesWithNoKids = "are pros."
     }
+    return emplooyeesWithKids
+    //return emplooyeesWithNoKids
+    //return emplooyeesWithNoKids1
+
 }
 console.log("emplooyee1", getEmployees(8000))
-console.log("emplooyee2", getEmployees(9000))
-console.log("emplooyee3", getEmployees(10000))
+console.log("emplooyee2", getEmployees(10000))
+console.log("emplooyee3", getEmployees(100000))

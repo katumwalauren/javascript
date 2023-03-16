@@ -41,5 +41,30 @@ console.log(a2)
 // lodash.sumBy(students, 'age');
 // console.log(sumStudents)
 
-//
+//ST Mary's collage has three grades for math, A B and C . a student gets A in math if he gets 95% and above in the 
+//final exams regardless of his or her midterm score. A student gets an A in math if he gets 80% and above in
+//midterm and 90% and above the final exams. A student gets B if he gets 80% and above in the final exams, for any
+//other marks, a student gets a C. write a function that will get a students final Math grade
+function getStudentsFinalMark(finalExams, midTerm) {
+    let studentFinalMathGrade;
+    if (finalExams >= 95, midTerm == 0) {
+        studentFinalMathGrade =  "A"
+    } else if (midTerm >= 80 && finalExams >= 90) {
+        studentFinalMathGrade =  "A"
+    } else if (finalExams >= 80, midTerm == 0) {
+        studentFinalMathGrade = "B"
+    } else {
+        studentFinalMathGrade =  "C"
+    }
+    return studentFinalMathGrade
+}
+console.log("student1",getStudentsFinalMark(96, 0))
+console.log("student2",getStudentsFinalMark(91, 82))
+console.log("student3",getStudentsFinalMark(82, 0))
+console.log("student4",getStudentsFinalMark(50, 60))
+
+
+
+
+
 

@@ -110,3 +110,20 @@ console.log(getOldestChildOfEmployed())
        console.log(divide)
        }
        getDividedNum()
+       function getStudentsFinalMark(studentFinalMathGrade) {
+        let results;
+        if (studentFinalMathGrade >= 95 ) {
+            results =  "A"
+        } else if (studentFinalMathGrade >= 80 && studentFinalMathGrade >= 90) {
+            results =  "A"
+        } else if (studentFinalMathGrade >= 80) {
+            results = "B"
+        } else {
+            results =  "C"
+        }
+        return results
+    }
+    console.log("student 1" ,getStudentsFinalMark(96))
+    console.log("student 2" ,getStudentsFinalMark(96))
+    console.log("student 3" ,getStudentsFinalMark(96))
+    console.log("student 4" ,getStudentsFinalMark(50))

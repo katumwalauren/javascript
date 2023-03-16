@@ -28,3 +28,29 @@ console.log(theLife)
 var theLyf = []
 console.log(theLyf)
 
+//2.1)functions of the types below. this function  attains a string called "lauren"
+function getString() {
+    var word = "Lauren"
+    console.log(word)
+}
+getString()
+
+//this function attains a  number 2
+function getNum() {
+    var y = 2
+    console.log(y)
+}
+getNum()
+
+//this function attains boolean true
+function getBoolean() {
+    const b = true
+    console.log(b)
+}
+getBoolean()
+//this function attains object
+function getObject() {
+    var theLife2 = { job: true }
+    console.log(theLife2)
+}
+getObject()
