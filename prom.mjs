@@ -96,34 +96,60 @@ function getOldestChildOfEmployed() {
     return allOfThem
 }
 console.log(getOldestChildOfEmployed())
-    // const thePerson = getOldestParentEmployed()
-    let getNames = families.find(function (item) {
-        return getOldestParentEmployed(item)
-    })
-    return getNames
+// const thePerson = getOldestParentEmployed()
+let getNames = families.find(function (item) {
+    return getOldestParentEmployed(item)
+})
+return getNames
 
-    function getDividedNum(){
-        var numArr =  [30,10,50,40,92,12,4];
-        var divide =  numArr.map(function(item){
-           return item/2
-        })
-       console.log(divide)
-       }
-       getDividedNum()
-       function getStudentsFinalMark(studentFinalMathGrade) {
-        let results;
-        if (studentFinalMathGrade >= 95 ) {
-            results =  "A"
-        } else if (studentFinalMathGrade >= 80 && studentFinalMathGrade >= 90) {
-            results =  "A"
-        } else if (studentFinalMathGrade >= 80) {
-            results = "B"
-        } else {
-            results =  "C"
-        }
-        return results
+function getDividedNum() {
+    var numArr = [30, 10, 50, 40, 92, 12, 4];
+    var divide = numArr.map(function (item) {
+        return item / 2
+    })
+    console.log(divide)
+}
+getDividedNum()
+function getStudentsFinalMark(studentFinalMathGrade) {
+    let results;
+    if (studentFinalMathGrade >= 95) {
+        results = "A"
+    } else if (studentFinalMathGrade >= 80 && studentFinalMathGrade >= 90) {
+        results = "A"
+    } else if (studentFinalMathGrade >= 80) {
+        results = "B"
+    } else {
+        results = "C"
     }
-    console.log("student 1" ,getStudentsFinalMark(96))
-    console.log("student 2" ,getStudentsFinalMark(96))
-    console.log("student 3" ,getStudentsFinalMark(96))
-    console.log("student 4" ,getStudentsFinalMark(50))
+    return results
+}
+console.log("student 1", getStudentsFinalMark(96))
+console.log("student 2", getStudentsFinalMark(96))
+console.log("student 3", getStudentsFinalMark(96))
+console.log("student 4", getStudentsFinalMark(50))
+
+
+//fundamental functions e.g i)
+function msg() {
+    console.log("hello world")
+}
+msg()
+
+//ii)function arguments 
+function getSqr(num) {
+    console.log(num * num)
+}
+getSqr()
+
+//iii) returning functions
+function getIt() {
+    return "hello javascript"
+}
+console.log(getIt())
+
+//iv) object functions 
+function getObj() {
+    var theLife2 = { job: "yes" }
+    console.log(theLife2)
+}
+getObj()
