@@ -170,7 +170,6 @@ function SortPercent() {
     console.log("the worst school:", sortWithPercent.slice(-1))
 }
 SortPercent()
-
 const families = [
     {
         father: {
@@ -231,9 +230,7 @@ const families = [
         ],
     },
 ];
-
 // Before writing any code, please show the expected answer for each question. 
-
 // write a function that returns families where at least one of the parent is employed
 function findEmployed() {
     const filterEmployed = families.filter((person) => {
@@ -249,7 +246,6 @@ function getOldestParentEmployed() {
     var age = oldest.sort((a, b) => b.age - a.age)
     return age[0]
 }
-
 // write a function that returns the names of the children of the oldest employed parent
 function getOldestChildOfEmployed() {
     const theParent = getOldestParentEmployed()

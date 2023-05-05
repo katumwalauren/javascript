@@ -108,3 +108,8 @@ code to obtain a random number eg 5 and 9 => Math.floor((Math.random() * 5) + 5)
 //wen defining a variable, let is used
 //javascript values are comprised of (javascript types)=> booleans, strings, number, arrays etc
 //math.max is used to get the greatest number
+>> function takes in means a  function has to have a parameter
+... equal operators are not used in javascript function parameters
+>> to get to know the type of the function, one needs to understand what the function wants eg function to get number of something means the type of the function to be returned is number
+>> variables don't return anything, they are just assignments. they are not types. 
+>> if an array or object is empty their type remains eg. var x = [] the type is array

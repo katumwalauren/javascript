@@ -153,3 +153,55 @@ function getObj() {
     console.log(theLife2)
 }
 getObj()
+
+// checking if a name exists in an array
+var arrayOfNames = ["lauren", "carolyn", "katumwa"]
+if (arrayOfNames.indexOf("katumwa") !== -1) {
+    return "is member"
+} else {
+    return " non member"
+}
+function getNameOfPersonThatBoughtSilver() {
+    const boughtSilver = trades.filter((items) => {
+        return items.tradeType === "buy" && items.assetId === 3
+    })
+    console.log(boughtSilver)
+}
+getNameOfPersonThatBoughtSilver()
+// var uniqueResultArrayObjOne = trades.filter(function (trade) {
+//     return !traders.some(function (trader) {
+//         return (trade.traderId === 3) == (trader.traderId === 3)
+//     });
+// });
+// console.log(uniqueResultArrayObjOne)
+
+//array position
+for (var traderId in traders) {
+    if (traderId) {
+        console.log(traderId)
+    }
+}
+//
+const boughtSilver = mineralTrades.filter((items) => {
+    return items.tradeType === "buy" && items.assetId === 3
+})
+var result = boughtSilver.find(o => traders.some(({ traderId }) => o.traderId === traderId));
+for (var i = 0, len = traders.length; i < len; i++) {
+    if (traders[i].traderId === 3) {
+        return result = traders[i].name
+    }
+}
+
+let maxTraderId = 0;
+saleTrades.forEach(ele => {
+    if (ele.traderId > maxTraderId) {
+        maxTraderId = ele.traderId
+    }
+})
+//var highestTrader = maxTraderId.map(item1 => traders.find(item2 => item1.traderId == item2.traderId))
+console.log(maxTraderId)
+
+function getTotalMoneySpent(trades) {
+    return trades.reduce((sum, tx) => sum + tx.amount, 0)
+}
+console.log(getTotalMoneySpent(trades))

@@ -103,7 +103,6 @@ function filteringArray2() {
             }
         });
         console.log(getAge)
-
     });
 }
 filteringArray2()
@@ -143,7 +142,6 @@ function buyBread(amount, price) {
     if (amount < price) {
         return { boughtBread: 0, change: 0 }
     }
-
     var boughtBread = Math.floor(amount / price)
     var change = amount - (boughtBread * price)
 
@@ -431,7 +429,6 @@ function sumFamilyAge() {
 sumFamilyAge()
 
 //function returning an array of initial capital letter of the name
-
 //console.log(Object.entries(family).map(([key, value]) => value.name))
 // console.log(Object.entries(family.children).map(([key, value]) => value.name))
 

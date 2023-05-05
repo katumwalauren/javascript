@@ -54,3 +54,4 @@ function getObject() {
     console.log(theLife2)
 }
 getObject()
+

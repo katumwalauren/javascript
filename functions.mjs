@@ -475,11 +475,8 @@ for (var x = 0; x < 1000; x++) {
 }
 console.log(sum)
 
-
-
 // function to put something in a javascript object
 const life = {
-
 }
 function addObject() {
     var newVariable = Object.assign({},life, {
