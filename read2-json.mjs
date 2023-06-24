@@ -128,11 +128,8 @@ function addProperties2() {
             } else {
                 return { ...obj, educ: 'secondary' };
             }
-
         })
-
         console.log(newArr);
-
     });
 }
 addProperties2()
@@ -144,12 +141,9 @@ function buyBread(amount, price) {
     }
     var boughtBread = Math.floor(amount / price)
     var change = amount - (boughtBread * price)
-
     return { boughtBread, change }
 }
-
 console.log(buyBread(25000, 27000))
-
 console.log(buyBread(2000, 1000))
 
 //getting students promotion
@@ -165,7 +159,6 @@ function promotion(student) {
     return result;
 }
 console.log(promotion(30))
-
 
 // a list of employees in a company and their friends
 const employees = {
@@ -295,7 +288,6 @@ function schoolNames() {
     allSchools(function (schoolDetails) {
         let getNames = schoolDetails.map((school) => school.name)
         console.log("theName", getNames)
-
     })
 }
 schoolNames()

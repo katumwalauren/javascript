@@ -176,12 +176,6 @@ getNameOfPersonThatBoughtSilver()
 // console.log(uniqueResultArrayObjOne)
 
 //array position
-for (var traderId in traders) {
-    if (traderId) {
-        console.log(traderId)
-    }
-}
-//
 const boughtSilver = mineralTrades.filter((items) => {
     return items.tradeType === "buy" && items.assetId === 3
 })
@@ -205,3 +199,92 @@ function getTotalMoneySpent(trades) {
     return trades.reduce((sum, tx) => sum + tx.amount, 0)
 }
 console.log(getTotalMoneySpent(trades))
+//trade
+function getMoneySpentByGivenTraderFromBoughtAssets() {
+    const boughtAssets = trades.filter((items) => {
+        return items.tradeType === "buy"
+    })
+    const d1 = new Date("2022-01-01").getTime()
+    const d2 = new Date("2022-01-03").getTime()
+    var result = boughtAssets.filter(d => {
+        var time = new Date(d.date).getTime()
+        return d1 >= time && time <= d2
+    })
+    var theAmount = result.map(p => p.amount)
+    var theNames = result.map(item1 => traders.find(item2 => item1.traderId == item2.traderId).name)
+    var thePrice = result.map(item1 => assets.find(item2 => item1.assetId == item2.assetId).price)
+    const totalMoney = (theAmount, thePrice) => {
+        return theAmount.map((e, index) => e * thePrice[index])
+    }
+    var arr = totalMoney(theAmount, thePrice).map((v, index) => [theNames[index], v])
+    var obj = arr.map(x => ({
+        name: x[0],
+        money: x[1]
+    }))
+    console.log(obj)
+
+}
+getMoneySpentByGivenTraderFromBoughtAssets()
+
+//without duplicates
+function getMoneySpentByGivenTraderFromSoldAssets() {
+    const soldAssets = trades.filter((items) => {
+        return items.tradeType === "sale"
+    })
+    const d1 = new Date("2022-01-01").getTime()
+    const d2 = new Date("2022-01-03").getTime()
+    var result = soldAssets.filter(d => {
+        var time = new Date(d.date).getTime()
+        return (d1 >= time && time <= d2)
+    })
+    var theAmount = result.map(p => p.amount)
+    var theNames = result.map(item1 => traders.find(item2 => item1.traderId == item2.traderId).name)
+    var thePrice = result.map(item1 => assets.find(item2 => item1.assetId == item2.assetId).price)
+    const totalMoney = (theAmount, thePrice) => {
+        return theAmount.map((e, index) => e * thePrice[index])
+    }
+    //var money = totalMoney(theAmount, thePrice).concat(theNames)
+    console.log(totalMoney(theAmount, thePrice))
+    console.log(theNames)
+    var obj = {}
+    theNames.forEach((elem, index) => {
+        obj[elem] = totalMoney(theAmount, thePrice)[index]
+    })
+    console.log(obj)
+}
+getMoneySpentByGivenTraderFromSoldAssets()
+
+for (var traderId in traders) {
+    console.log(traders[traderId].name)
+}
+
+for (let i = 0; i < trades.length; i++) {
+    if (trades[i].amount === amount) {
+        return theAmount =  amount
+    }
+}
+
+
+const result = array.reduce((acc, { name, spent }) => {
+    acc[name] ??= [];
+    if (Array.isArray(spent))
+        acc[name].spent = acc[name].spent.concat(spent)
+    else
+        acc[name].push(spent)
+    return acc
+}, {})
+return result
+
+//2
+function groupByName1(array) {
+    const result = Array.from(new Set(array.map(s => s.name)))
+        .map(lab => {
+            return {
+                name: lab,
+                spent: array.filter(s => s.name === lab).map(ed => ed.spent)
+            }
+        })
+    return result
+}
+const outPut = getMoneySpentPerTrade()
+console.log(groupByName1(outPut))

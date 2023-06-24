@@ -479,7 +479,7 @@ console.log(sum)
 const life = {
 }
 function addObject() {
-    var newVariable = Object.assign({},life, {
+    var newVariable = Object.assign({}, life, {
         name: "katumwa Lauren",
         age: 20,
         school: "L University"
@@ -518,11 +518,9 @@ var student = {
     sclass: "X",
     rollno: 14
 }
-
 function getListProp() {
     var theStudent = Object.keys(student)
     console.log('theStudent', theStudent)
 }
 getListProp()
-
 

@@ -37,7 +37,7 @@ function getSumToGivenVal(num) {
 }
 console.log(getSumToGivenVal(5))
 
-// write a function that returns a tue if a number is a value
+// write a function that returns a true if a number is a value
 var isNum = function (number) {
     if (typeof number === 'number') {
         return true;
